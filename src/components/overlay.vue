@@ -1,7 +1,15 @@
-<script setup lang="ts" ></script>
+<script setup lang="ts" >
+
+interface Emit {
+    (event:"close-dialog"):void
+}
+
+const emit = defineEmits<Emit>();
+
+</script>
 
 <template>
-    <div class="overlay">
+    <div @click.self="emit('close-dialog')" class="overlay">
         <slot />
     </div>
 </template>
@@ -15,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:rgb(149, 153, 226,0.3);
+    background-color: rgb(149, 153, 226, 0.3);
     backdrop-filter: blur(0.6rem);
 
 }

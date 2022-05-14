@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useUi } from '../store';
+
+const uiStore = useUi();
+
+</script>
 
 <template>
     <div class="appbar">
@@ -12,7 +17,7 @@
                 <li>Our users</li>
                 <li>Register</li>
             </ul>
-            <button class="material-symbols-outlined">login</button>
+            <button @click="uiStore.toggleLoginModal" class="material-symbols-outlined">login</button>
         </div>
     </div>
 </template>

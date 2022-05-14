@@ -1,11 +1,19 @@
 <script setup lang="ts" >
-import Overlay from './overlay.vue';</script>
+import Overlay from './overlay.vue';
+import { useUi } from '../store';
+const uiStore = useUi();
+
+const toggleModal = () => {
+    uiStore.toggleLoginModal();
+}
+
+</script>
 
 <template>
-    <Overlay>
+    <Overlay @close-dialog="toggleModal">
         <div class="login-modal">
             <div class="toolbar">
-                <h3>Login</h3> <button class="close-button material-symbols-outlined">close</button>
+                <h3>Login</h3> <button @click="toggleModal" class="close-button material-symbols-outlined">close</button>
             </div>
             <div class="form">
                 <input type="text" placeholder="e mail">
@@ -42,7 +50,7 @@ import Overlay from './overlay.vue';</script>
 i {
     color: grey;
     font-style: normal;
-    font-size:0.9rem;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 
