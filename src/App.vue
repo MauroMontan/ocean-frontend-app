@@ -2,9 +2,11 @@
 import MainLayout from './components/MainLayout.vue';
 import Appbar from "./components/Appbar.vue";
 import CustomFooter from "./components/footer.vue";
+import LoginModal from './components/LoginModal.vue'
 </script>
 
 <template>
+    <LoginModal v-show="true" />
     <MainLayout>
         <template v-slot:appbar>
             <Appbar />
@@ -31,9 +33,9 @@ import CustomFooter from "./components/footer.vue";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: black;
-    background-image:url("./assets/background.svg");
+    background-image: url("./assets/background.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
 }
 </style>
