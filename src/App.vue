@@ -13,10 +13,13 @@ const loginModalState = computed(() => {
     return uiStore.isLoginModalOpen;
 });
 
+const infoModalState = computed(() => {
+    return uiStore.isInfoModalOpen;
+});
 </script>
 
 <template>
-    <UserInfo/>
+    <UserInfo v-if="infoModalState" />
     <LoginModal v-if="loginModalState" />
     <MainLayout>
         <template v-slot:appbar>

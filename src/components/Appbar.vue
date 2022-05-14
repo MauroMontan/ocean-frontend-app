@@ -1,23 +1,32 @@
 <script setup lang="ts">
+import IconButton from "./IconButton.vue"
 import { useUi } from '../store';
 
 const uiStore = useUi();
 
+const toggleInfo = () => {
+    uiStore.toggleInfoModal();
+};
+
+const toggleLogin = () => {
+    uiStore.toggleLoginModal();
+}
 </script>
 
 <template>
     <div class="appbar">
         <div class="brand">
+            <IconButton @click="toggleInfo" icon="account_circle" />
             <h1>Plasctic</h1>
         </div>
         <div class="links">
             <ul>
                 <li>About us</li>
                 <li>What we do</li>
-                <li>Our users</li>
+                <li>Users rank</li>
                 <li>Register</li>
             </ul>
-            <button @click="uiStore.toggleLoginModal" class="material-symbols-outlined">login</button>
+            <IconButton @click="toggleLogin" icon="login" />
         </div>
     </div>
 </template>
@@ -32,6 +41,18 @@ const uiStore = useUi();
     justify-content: space-between;
 }
 
+.brand {
+    display: flex;
+    gap: 1rem;
+}
+
+.brand button {
+    background: none;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
 
 .links {
     display: flex;
