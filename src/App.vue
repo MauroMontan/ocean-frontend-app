@@ -4,17 +4,19 @@ import MainLayout from './components/MainLayout.vue';
 import Appbar from "./components/Appbar.vue";
 import CustomFooter from "./components/footer.vue";
 import LoginModal from './components/LoginModal.vue'
-import {useUi} from "./store";
+import UserInfo from './components/userInfo.vue';
+import { useUi } from "./store";
 
 const uiStore = useUi();
 
-const loginModalState = computed(()=>{
+const loginModalState = computed(() => {
     return uiStore.isLoginModalOpen;
 });
 
 </script>
 
 <template>
+    <UserInfo/>
     <LoginModal v-if="loginModalState" />
     <MainLayout>
         <template v-slot:appbar>
