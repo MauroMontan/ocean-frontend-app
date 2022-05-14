@@ -1,21 +1,39 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import MainLayout from './components/MainLayout.vue';
+import Appbar from "./components/Appbar.vue";
+import CustomFooter from "./components/footer.vue";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <MainLayout>
+        <template v-slot:appbar>
+            <Appbar />
+        </template>
+        <router-view></router-view>
+        <template v-slot:footer>
+            <CustomFooter />
+        </template>
+    </MainLayout>
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: black;
+    background-image:url("./assets/background.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 </style>
