@@ -10,7 +10,7 @@ const toggleInfo = () => {
     uiStore.toggleInfoModal();
 };
 
-const logOut = () =>{
+const logOut = () => {
     userStore.signout();
 };
 
@@ -26,11 +26,13 @@ const toggleRegister = () => {
     <div class="appbar">
         <div class="brand">
             <IconButton @click="toggleInfo" icon="account_circle" />
-            <h1>Plasctic</h1>
+            <h1 class="name">Together by oceans</h1>
         </div>
         <div class="links">
             <ul>
-                <li>About us</li>
+                <li>
+                    <router-link to="/about"> About us </router-link>
+                </li>
                 <li>
                     <router-link to="/rank">Users rank</router-link>
                 </li>
@@ -58,12 +60,19 @@ const toggleRegister = () => {
     gap: 1rem;
 }
 
+a{
+text-decoration: none;
+}
 .brand button {
     background: none;
     font-size: 2rem;
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.name {
+    color: grey;
 }
 
 .links {
