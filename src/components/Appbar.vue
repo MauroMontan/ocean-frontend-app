@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import IconButton from "./IconButton.vue"
-import { useUi } from '../store';
+import { useUi, useUser } from '../store';
 
+const userStore = useUser();
 const uiStore = useUi();
+
 
 const toggleInfo = () => {
     uiStore.toggleInfoModal();
 };
 
+const logOut = () =>{
+    userStore.signout();
+};
+
 const toggleLogin = () => {
     uiStore.toggleLoginModal();
 }
+const toggleRegister = () => {
+    uiStore.toggleRegisterModal();
+};
 </script>
 
 <template>
@@ -22,11 +31,14 @@ const toggleLogin = () => {
         <div class="links">
             <ul>
                 <li>About us</li>
-                <li>What we do</li>
-                <li>Users rank</li>
-                <li>Register</li>
+                <li>
+                    <router-link to="/rank">Users rank</router-link>
+                </li>
+                <li @click="toggleRegister">Register</li>
             </ul>
-            <IconButton @click="toggleLogin" icon="login" />
+
+            <IconButton v-if="uiStore.isLoggedIn" @click="logOut" icon="logout" />
+            <IconButton v-else @click="toggleLogin" icon="login" />
         </div>
     </div>
 </template>

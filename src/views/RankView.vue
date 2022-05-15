@@ -50,4 +50,7 @@ import RankUserCard from "../components/RankUserCard.vue";
     justify-content: end;
     flex-direction: column;
 }
+
+
+
 </style>

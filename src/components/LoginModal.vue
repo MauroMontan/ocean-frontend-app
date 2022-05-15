@@ -1,11 +1,32 @@
 <script setup lang="ts" >
 import Overlay from './overlay.vue';
-import { useUi } from '../store';
+import TextButton from "./TextButton.vue"
+import { useUi, useUser } from '../store';
+import { reactive } from 'vue';
+import { Auth } from "../interfaces/user"
+
+const userStore = useUser();
+
+const user: Auth = reactive({
+    email: "",
+    password: "",
+});
+
+
+const login = () => {
+    userStore.signin(user);
+};
+
 const uiStore = useUi();
 
 const toggleModal = () => {
     uiStore.toggleLoginModal();
 }
+
+const openRegister = () => {
+    uiStore.toggleLoginModal();
+    uiStore.toggleRegisterModal();
+};
 
 </script>
 
@@ -13,24 +34,26 @@ const toggleModal = () => {
     <Overlay @close-dialog="toggleModal">
         <div class="login-modal">
             <div class="toolbar">
-                <h3>Login</h3> <button @click="toggleModal" class="close-button material-symbols-outlined">close</button>
+                <h3 class="error" v-if="uiStore.authError"> Invalid credential Invalid credentialss </h3>
+                <h3 v-else>Login</h3> <button @click="toggleModal"
+                    class="close-button material-symbols-outlined">close</button>
             </div>
             <div class="form">
-                <input type="text" placeholder="e mail">
-                <input type="text" placeholder="password">
+                <input v-model="user.email" type="email" placeholder="e-mail">
+                <input v-model="user.password" type="password" placeholder="password">
                 <i>Forgot password</i>
             </div>
             <div class="actions">
-                <button>login</button>
+                <TextButton @click="login"> Login </TextButton>
             </div>
-            <i>Register</i>
+            <i @click="openRegister">Register</i>
         </div>
     </Overlay>
 </template>
 
 <style scoped>
 .login-modal {
-    background-color: black;
+    background-color: #001220;
     width: 30%;
     height: 45vh;
     border-radius: 1rem;
@@ -39,6 +62,10 @@ const toggleModal = () => {
     justify-content: space-around;
     text-align: center;
     flex-direction: column;
+}
+
+.error {
+    color: tomato;
 }
 
 .toolbar {
@@ -81,13 +108,9 @@ i {
 }
 
 .actions button {
-    background-color: red;
-    border-radius: 0.5rem;
-    height: 2rem;
     width: 90%;
-    outline: none;
-    border: none;
     cursor: pointer;
+    height: 2rem;
 }
 
 input {
@@ -95,6 +118,8 @@ input {
     outline: none;
     border-radius: 0.5rem;
     border: none;
+    font-size: 1.3rem;
+    color: rgb(67, 80, 111);
     text-align: center;
 }
 </style>

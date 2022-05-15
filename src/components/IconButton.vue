@@ -1,7 +1,7 @@
 <script setup lang="ts" >
 
 interface Prop {
-    icon:string;
+    icon: string;
 };
 interface Emit {
     (event: "click"): void
@@ -11,17 +11,18 @@ const props = defineProps<Prop>();
 </script>
 <template>
     <button class=" icon-button material-symbols-outlined" @click="emit('click')">
-        {{props.icon}}
+        {{ props.icon }}
     </button>
 </template>
 
 <style scoped >
-
-.icon-button{
+.icon-button {
     border: none;
     outline: none;
-    font-size:2rem;
+    font-size: 2rem;
+    background-color: transparent;
 }
+
 .icon-button:hover {
     color: yellow;
 }

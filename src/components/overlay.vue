@@ -1,7 +1,7 @@
 <script setup lang="ts" >
 
 interface Emit {
-    (event:"close-dialog"):void
+    (event: "close-dialog"): void
 }
 
 const emit = defineEmits<Emit>();
@@ -11,6 +11,7 @@ const emit = defineEmits<Emit>();
 <template>
     <div @click.self="emit('close-dialog')" class="overlay">
         <slot />
+        <img src="../assets/pulpo.svg" alt="">
     </div>
 </template>
 
@@ -26,5 +27,12 @@ const emit = defineEmits<Emit>();
     background-color: rgb(149, 153, 226, 0.3);
     backdrop-filter: blur(0.6rem);
 
+}
+
+img {
+    position: absolute;
+    width: 20%;
+    bottom: 0;
+    left: 4rem;
 }
 </style>

@@ -6,6 +6,7 @@ import CustomFooter from "./components/footer.vue";
 import LoginModal from './components/LoginModal.vue'
 import UserInfo from './components/userInfo.vue';
 import { useUi } from "./store";
+import RegisterModal from './components/RegisterModal.vue';
 
 const uiStore = useUi();
 
@@ -16,9 +17,13 @@ const loginModalState = computed(() => {
 const infoModalState = computed(() => {
     return uiStore.isInfoModalOpen;
 });
+const registerModalState = computed(() => {
+    return uiStore.isRegisterModalOpen;
+});
 </script>
 
 <template>
+    <RegisterModal v-if="registerModalState" />
     <UserInfo v-if="infoModalState" />
     <LoginModal v-if="loginModalState" />
     <MainLayout>

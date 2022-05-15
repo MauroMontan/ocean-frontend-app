@@ -6,11 +6,13 @@
             <div class="frame">
                 <img src="../assets/avat_placeholder.png" alt="profile image">
             </div>
-            <h1>Mauro Montaño</h1>
+            <h1>we have no winners yet !</h1>
         </div>
         <div class="stats">
-            <i class="fa-solid fa-trophy"></i> <h2>3</h2>
-            <i class="fa-solid fa-weight-hanging"></i> <h2>30</h2>
+            <i class="fa-solid fa-trophy"></i>
+            <h2>3</h2>
+            <i class="fa-solid fa-weight-hanging"></i>
+            <h2>30</h2>
         </div>
     </div>
 </template>
@@ -18,18 +20,20 @@
 <style scoped >
 .user-card {
     width: 90%;
-    height:12rem;
+    height: 12rem;
     border-radius: 1rem;
-    background-color: blue;
+background-color: #74EBD5;
+background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     display: flex;
-    padding:1rem;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
 }
 
-i{
-font-size: 2rem;
+i {
+    font-size: 2rem;
 }
+
 .user-card .user-info {
     display: flex;
     align-items: center;

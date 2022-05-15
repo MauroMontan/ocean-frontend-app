@@ -1,5 +1,6 @@
 <script setup lang="ts" >
 import Overlay from './overlay.vue';
+import TextButton from "./TextButton.vue";
 import { useUi } from '../store';
 const uiStore = useUi();
 
@@ -31,7 +32,7 @@ const toggleModal = (): void => {
                 </div>
                 <input type="text" placeholder="adress">
                 <div class="actions">
-                    <button> update </button>
+                <TextButton> save changes </TextButton>
                 </div>
             </div>
         </div>
@@ -40,7 +41,8 @@ const toggleModal = (): void => {
 
 <style scoped>
 .user-info {
-    background-color: black;
+
+background-color: rgb(0,18,32);
     width: 50%;
     height: fit-content;
     border-radius: 1rem;
@@ -116,7 +118,6 @@ label {
 }
 
 .actions button {
-    background-color: red;
     outline: none;
     border: none;
     padding: 0.5rem;
@@ -124,10 +125,11 @@ label {
 }
 
 input {
+    font-size:1.3rem;
     border: none;
-    color: red;
     outline: none;
     border-radius: 0.5rem;
+    color: rgb(67,80,111);
     height: 2rem;
     text-align: center;
 }
