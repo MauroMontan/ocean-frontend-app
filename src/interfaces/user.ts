@@ -17,9 +17,9 @@ export interface User {
 export interface Auth {
     email: string,
     password: string;
-    name: string;
+    name?: string;
     phone_number?:number | null;
-    username: string;
+    username?: string;
     birth?: Date | null;
     adress?: string;
     prizes?: number;
